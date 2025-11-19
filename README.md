@@ -43,6 +43,115 @@ DROP COLUMN (navn) -- Husk dataen også slettes
 
 DROP TABLE (database navn) -Fjerner hele databasen
 
+________
+
+MANIPULATE/MODIFY YOUR DATA:
+INDSÆT DATA I EN TABEL:
+MEOTDE 1: INSERT INTO tabel navn (række_1, række_2, ...)    --- Det er optional at skrive kolonnerne, men SQL forventer ellers værdier for alle kolonner hvis de ikke skrives, så hvis du tilføjer en værdi til alle kolonner så lad vær med at skrive kolonnerne, hvis du skriver dem alle, du kan bare skippe det.
+VALUE (value1, value2, osv.) --- VIGTIGT, antal kolonner og værdier angivet skal matche + De skal matche i rækkefølge + følg datatypereglerne sat og kravene
+
+Note: Du kan insert multiple værdier, sådan her
+VALUE (value1, value2, value3),
+      (value1, value2, value3) ...
+
+-- De kolonner som ikke vælges, de får angivet NULL automatisk som værdi når du inserter ny data og kun speficiferer et mindre antal kolonner som skal have givet værdier.
+
+METODE 2:
+Flyt data fra en tabel til en anden gennem SELECT
+
+BENYT SELECT, og vælg de kolonner du skal bruge fra databasen du skal tage data fra. TIP: Åben databaens kolonne som du vil indsætte værdier ind i og tilpas select dertil så du kan se hvilke værdier du skal importere og hvilke der kan være null og ikke kan være null.
+
+For at flytte data fra en tabel til en anden, så skriver du en query vha. select, og så benyter du INSERT INTO (tabel navn) for at kaste dataen ind i den tabels navn.
+
+UPDATE ændrer/opdaterer den nuværende data i en tabel. --HUSK at benytte WHERE for at slippe for at opdatere hele databasen på en gang.
+
+HER skal du ALTID benytte en WHERE claus for at sige hvilke rækker som skal have opdateret en kolonne. Ellers opdateres hele databasen.
+
+TIP: Benyt en select quere med WHERE og så hvad du har sat where til i UPDATE funktionen for at se hvad for noget data der påvirkes inden du opdaterer.
+
+For at slette data benytter du DELETE FROM (tabel navn) sammen med en WHERE condition, ALTID - eller sletter du alle kolonner.
+
+Hvis du vil slette alt i en tabel, og du ved at det er det du vil, så benyt TRUNCATE TABLE i stedet for DELETE, da det er meget hurtigere. Den checker eller logger ingenting.
+
+__________________________________________________ SQL BASCIS COMPLETE (Intro, QUERY DATA, DATA Definition, DATA Manipulation) _____________________________________________________________________________
+
+5. FILTRERING AF DATA
+WHERE:
+Comparison operators - compare two things:
+
+Strukturen er: Expressions | operator | Expression
+
+fx 
+column1 = column2 fx first_name = Last_name
+column1 = value fx first_name = John
+Function = Value fx UPPER(first_name) = "John"
+Expression = value fx price*quantity = 1000
+Subquery = value SELECT ... = Value
+
+Comparison Operators
+= - Lig med
+!= - Ikke lig med
+< - mindre end
+> - større end
+<= - mindre eller lig med
+>= - større eller lig med
+
+Logical operators
+AND - All conditions must be true
+OR - Atleast one conditiono must be true
+NOT - REVERSE - tager den modsatte værdi
+
+Range operator
+Between - Tjekker om en værdi er inden for en range (slutpunkterne er inklusive), og benyttes sammen med AND: x between y and z
+Benyt logiske operatorer i stedet, da du kan ændre boundaries, fx score >= 100 and score <= 500
+
+Membership Operator
+IN - tjekker om en række opfylder at være i en liste
+Not in - tjekker om en række ikke opfylder at være i en liste
+Notation: WHERE x (not) in (value, value)
+
+Search Operator
+LIKE - search for a pattern in text
+Her handler det om at bygge et mønster som LIKE kan søge efter. Det gøres med % som betyder "alting" og _ som betyder 1 ting.
+fx M% søger efter alt der starter med M, da alt efter accepteres af %, da den accepterer alt, selv ingenting.
+%M søger efter alt som slutter med M, da den tilader alt foran M, så længe det slutter med M.
+%M% søger efter alt med et M i sig. Da alt eller ingenting kan komme før eller efter.
+_M søger efter 1 ting foran M og så med M efter.
+M_ søger efter alt der starter med M og har en ting efter.
+__b% søger efter alt med to ting foran b, og så alt eller intet efter b. fx godkendes kabfjdksfdks eller lab
+
+Notation er: WHERE (kolonne_navn) LIKE (søg med % eller _ i '') 
+fx WHERE first_name LIKE 'M%'
+
+
+
+6. Combining Data
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
