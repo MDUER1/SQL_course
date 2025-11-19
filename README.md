@@ -25,6 +25,23 @@ De forskellige query-kommandoer ekseveres i følgende rækkefølge
 5. SELECT DISTINCT - Fjern evt. duplicater fx lande som går igen (beholder den øverste)
 7. ORDERS BY - Bestem om dataene skal gå fra top til bund eller omvendt ud fra en specifik værdi
 8. TOP - Vi nu blot de øvestre x antal rækker
+_________
+
+Definér strukturen af din database:
+
+
+Benyt CREATE til at skabe en tabel i din database, og ALTER til at modificere den. ALTER vil altid tilføje din nye kolonne helt til sidst, hvis den skal stå i midten skal du starte fra scratch med at lave en ny tabel.
+Benyt DROP for at fjerne en tabel fra din database.
+
+ALTER tilføj benyt:
+ALTER TABLE (navn)
+ADD (kolonne navn) (datatype) (krav)
+
+ALTER fjern benyt
+ALTER TABLE (navn)
+DROP COLUMN (navn) -- Husk dataen også slettes
+
+DROP TABLE (database navn) -Fjerner hele databasen
 
 
 
