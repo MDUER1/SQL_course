@@ -170,9 +170,11 @@ Du kan også benytte UNION ALL hvis du gerne vil tjekke om der er duplikater i t
 SET OPERATOR: EXCEPT (minus)
 Den returnerer alle distinkte (ingen dups) rækker fra den første query, som ikke er fundet i den næste query. Derfor er rækkefølgen af queries vigtig her, og den minder om LEFT JOIN lowkey.
 
+SET OPERATOR: INTERSECT
+Returnerer kun de rækker som går igen i begge queries, og fjerner duplikater. Minder om INNER JOIN
 
-
-
+BRUGER GUIDE: 
+Kombiner ligende data fra flere tabeller ind til 'en tabel, og så kør en query på den nye tabel - Her benyt UNION ALL eller UNION hvis du vil være sten sikker på der er ingen duplikater.
 
 
 
