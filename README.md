@@ -127,15 +127,48 @@ fx WHERE first_name LIKE 'M%'
 
 6. Combining Data
 
+ALLE 9 Typer JOINS
+
+Hvordan vælger du mellem alle de forskellige JOINS?
+
+Hvis du vil lave en tabel hvor du joner flere tabeller hvor du kun er interesseret i det data som de matcher/begge har -> INNER JOIN
+Hvis du vil se alle rækkker men én af tabellerne er vigtigere end den anden -> LEFT JOIN
+Hvis du vil se alle rækker og alt er lige vigtigt -> FULL JOIN
+Hvis du kun vil se hvad én tabel har som ikke matcher med andre tabeller -> LEFT ANTI JOIN
+Hvis du kun vil se alt data som ikke matcher imellem tabellerne -> FULL ANTI JOIN.
 
 
+Benyt eller lav en ER model for at se hvilke kolonner som der går igen hos de forskellige databaser, så du kan se hvilke du kan joine.
 
+HUSK: JOINS samler kolonner ved siden af hinanden. SET OPERATORS tilføjer rækker under hinanden. For JOINS kræver det en nøgle-kolonne som går igen i alle tabeller du prøver at joine, og for SET OPERATORS er det at de har samme kolonner.
 
+SET OPERATORS:
 
+For set operators, sætte du dem mellem to SELECTs. Her på ORDER BY kun benyttes én gang og det er til aller sidst.
 
+DU SKAL have det samme antal rækker som du viser i hver query som forbindes med en SET operator. Ellers duer det ikke.
 
+DATATYPERNE for hver kolonne i hver query skal være compatible. Altså det skal være de samme datatyper.
 
+RÆKKEFØLGEN SKAL være den samme under SLECET i hver query.
 
+Den første QUERY navngiver kolonnerne i outputtet. Så hvis du vil give aliases for output kolonnerne, så skal du blot give et alias til den første query.
+
+Husk at tjekke om din rækkefølge af kolonner er rigtig under hver query er ens, da datatyperne godt kan matche og så give det forkerte resultat uden en error, da datatyperne matcher. Fx hvis du bytter om på rækkefølgen af første og sidste navn i to queries forbundet med en SET OPERATOR.
+
+SET OPERATOR: UNION
+Returnerer alle rækker fra all queries og fjerner duplikater.
+
+Husk du skal vælge de rækker som går igen i begge tabeller, du kan ikke bare kombinere hele tabellerne.
+
+SET OPERATOR: UNION ALL
+Returnerer alle rækker, men fjerner ikke duplikater.
+
+Union ALL er hurtigere end Union, så hvis du ved at der ikke er duplikater, så benyt ikke UNION, da den er langsommere da den udfører flere beregninger da den tjekker for duplikater. Bare benyt UNION ALL.
+Du kan også benytte UNION ALL hvis du gerne vil tjekke om der er duplikater i to tabeller.
+
+SET OPERATOR: EXCEPT (minus)
+Den returnerer alle distinkte (ingen dups) rækker fra den første query, som ikke er fundet i den næste query. Derfor er rækkefølgen af queries vigtig her, og den minder om LEFT JOIN lowkey.
 
 
 
