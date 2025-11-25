@@ -220,7 +220,13 @@ RIGHT() Denne gør hvad LEFT() gør bare fra højre side af.
 SUBSTRING() Denne udtager en del af en string fra en givet position. SUBSTRING(Value/kolonnenavn, start, length)
 
 NUMBER FUNCTIONS: 
+ROUND() - Her kan du runde et tal til x decimaler, ROUUND(kommatal, decimaler).
+ABS() - Gver dig den absolutte værdi af et tal, ABS(tal).
 
+DATE & TIME FUNCTIONS
+
+Når vi snakker om en dato (date) er det et tal på formen år-mo-dag, og tid er på time-min-sek, og hvis du kombinere de to efter hinanden får du et Timestamp.
+GETDATE() giver os dagens dato og er ret vigtig.
 
 
 
