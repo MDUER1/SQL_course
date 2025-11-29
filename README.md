@@ -228,6 +228,69 @@ DATE & TIME FUNCTIONS
 Når vi snakker om en dato (date) er det et tal på formen år-mo-dag, og tid er på time-min-sek, og hvis du kombinere de to efter hinanden får du et Timestamp.
 GETDATE() giver os dagens dato og er ret vigtig.
 
+Du kan benytte DAY("date") til at få dagen. Det samme kan du gøre for MONTH() og YEAR()
+
+DATEPART(part, date) - Den udtrækker andet information fra din dato, fx uge-nummer eller hvilket kvartal du er i, måned osv.
+
+Hvis du gerne ville have navnet på din part, fx i stedet for dag 5, så fredag, eller august i stedet 8 som måned. Det er identisk til DATEPART, bare DATENAME(part,date).
+
+Men husk at du skal skrive i stedet for day så dayweek, da en tilfældig dag ikke har et navn men givet en integear. Det samme med år, den har bare sit årstal, så du kan kun rigtigt med måneder og ugedage.
+
+DATETRUNC(part,date) - Den fortæller hvor meget detalje vi gerne vil angive datoen i. Dateon går fra år-måned-dag time-min-sek og hvis vi fx gerne kun vil lave analyser på dag-niveau, så kan du skrive hours, og så resettes den til 0 og alt andet. Men hvis du siger fx dag, eller måned og ned skal resettes hvis du fx kun laver år-analyser hvor det andet er ligegyldigt, så sættes dag og måned ikke til 0, da vi ikke har en dato som er 0 for dag og måned. Derfor sættes de to til 1.
+
+DATETRUNC kan også benyttes til at få starten på månedes hvis du afskærer ved månedsniveau. DU kan benytte CAST til at afskærer nullerne.
+
+Du bruger den tit hvis du fx gerne vil gruperer efter dato, fx hvor mange ordrer du har fået på et år, så kræver det at du afskærer dag og ned fra, for ellers får du antal ordrer per sekund.
+
+EOMONTH(date) (End-Of-Month), laver datoen så vi kan få slutningen af måneden for alle måneder i din dato.
+
+Du benytter disse funktioner til fx at filtrere data alt efter om du vil se data fra hvilke tidspunkter, og så for at samle/aggragerer data på forskellige tidsniveauer fx ordrer for mandag, eller februar eller 2025.
+
+Benyt Integers for at filtrere med where da den er hurtigere.
+
+Datoerne skrives som
+
+YYYY-MM-dd-HH-mm-ss
+
+For at formaterer dine datoer kan du benytte FORMAT eller CONVERT.
+
+CASTING ændrer datatyper, det gør CONVERT også.
+
+FORMAT(value, format, (optional) [,culture]) - her betyder culture hvilken stil du gerne vil konverterr den til fx EU standard. Fx FORMAT(OrderDate "dd/MM/yyy")
+
+Du benytter typisk FORMAT til at formaterer data som skal have same format i din database som kommer udefra, fx API's, csv osv.
+
+CONVERT(data_type, value [,style]) hvor her er style optional.
+
+CAST(value as data_type), fx CAST('pølse' as INT) - CAST er lavet for blot at ændre en datatype  til en anden.
+
+CAST VS CONVERT VS FORMAT
+
+
+DATEADD(part(år,dage,måneder), interval(tilføj eller træk fra (- fortegn) x fra part, date (dato som ændres)) - tilføjer eller trækker tid fra vores datoer. Fx kan du tilføje eller trække fra x dage, måneder eller år til en dato.
+
+DATEDIFF(part, start dato, slut dato) Finder differensen mellem to datoer. Så den siger find forskellen i (part) mellem (startdat) og (slutdato)
+
+ISDATE(value) - tjekker om værdien ligner en dato, og hvis den er det, så får du 1 for ja og 0 for nej. fx hvis værdien er 123 så siger den 0, men hvis den er 2025 siger den 1. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
